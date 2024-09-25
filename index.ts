@@ -32,8 +32,11 @@ export default [
   eslintPluginUnicorn.configs["flat/recommended"],
   eslintPluginReact.configs.flat.recommended,
   {
+    files: ['**/*.{ts,mts,jsx,mjsx,tsx,mtsx}'],
+    ...eslintPluginReact.configs.flat.recommended,
+  },
+  {
     languageOptions: {
-      ...eslintPluginReact.configs.flat.recommended.languageOptions,
       globals: {
         ...globals.browser,
         ...globals.serviceworker,
@@ -215,7 +218,7 @@ export default [
       "target",
       "gen",
       "coverage",
-      ".coverage",
+      ".coverage"
     ],
   },
   eslintConfigOxlint.configs["flat/recommended"],
