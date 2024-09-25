@@ -1,6 +1,6 @@
 {
   "name": "@trumpet/eslint-config-next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Comprehensive ESLint config for NextJS projects",
   "main": "dist/index.js",
   "type": "module",
