@@ -126,6 +126,9 @@ export default [
 
       // Unused imports rule
       "unused-imports/no-unused-imports": "error",
+
+      // React
+      "react/react-in-jsx-scope": "off"
     },
   },
   {
