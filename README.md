@@ -13,18 +13,18 @@ npm install --save-dev eslint typescript-eslint @trumpet/eslint-config-next
 In an ´eslint.config.mjs´ file:
 
 ```javascript
-import eslintConfigBasemind from "@basemind/eslint-config-next";
+import eslintConfigTrumpet from "@trumpet/eslint-config-next";
 
-export default eslintConfigBasemind;
+export default eslintConfigTrumpet;
 ```
 
 Or
 
 ```javascript
-import eslintConfigBasemind from "@basemind/eslint-config-next";
+import eslintConfigTrumpet from "@trumpet/eslint-config-next";
 
 export default [
-  ...eslintConfigBasemind,
+  ...eslintConfigTrumpet,
   // other configurations below, for example:
   {
     rules: {
