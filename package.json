@@ -1,0 +1,85 @@
+{
+  "name": "@trumpet/eslint-config-next",
+  "version": "1.0.0",
+  "description": "Comprehensive ESLint config for NextJS projects",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "types": "dist/index.d.ts",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basemind-ai/eslint-config-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/basemind-ai/eslint-config-next/issues"
+  },
+  "homepage": "https://github.com/basemind-ai/eslint-config-next#readme",
+  "keywords": [
+    "eslint",
+    "typescript",
+    "linter",
+    "code-quality",
+    "react"
+  ],
+  "author": "Na'aman Hirschfeld",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "format": "biome format --write .",
+    "lint": "eslint --fix 'index.ts'",
+    "prepare": "husky",
+    "prepublish": "pnpm run build"
+  },
+  "lint-staged": {
+    "*.json": "biome format --write",
+    "*.ts": [
+      "biome format --write",
+      "eslint --fix --no-warn-ignored"
+    ]
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.11.1",
+    "@next/eslint-plugin-next": "^14.2.13",
+    "@types/eslint__js": "^8.42.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsdoc": "^50.2.4",
+    "eslint-plugin-markdown": "^5.1.0",
+    "eslint-plugin-n": "17.10.3",
+    "eslint-plugin-oxlint": "^0.9.8",
+    "eslint-plugin-promise": "7.1.0",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-unicorn": "55.0.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.9.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "eslint": "^9.11.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9",
+    "next": ">=14",
+    "react": ">=18",
+    "typescript": ">=5",
+    "typescript-eslint": ">=8"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
