@@ -9,7 +9,6 @@ import eslintPluginMarkdown from "eslint-plugin-markdown";
 import eslintPluginNode from "eslint-plugin-n";
 // @ts-expect-error, untyped import
 import eslintPluginPromise from "eslint-plugin-promise";
-// @ts-expect-error, untyped import
 import eslintPluginReact from "eslint-plugin-react";
 // @ts-expect-error, untyped import
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
@@ -21,7 +20,6 @@ import eslintTS from "typescript-eslint";
 // @ts-expect-error, untyped import
 import eslintPluginNext from "@next/eslint-plugin-next";
 import type { Linter } from "eslint";
-import eslintConfigOxlint from "eslint-plugin-oxlint";
 
 export default [
   eslintJS.configs.recommended,
@@ -131,7 +129,10 @@ export default [
       "unused-imports/no-unused-imports": "error",
 
       // React
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+
+      // Node
+      "n/no-unsupported-features/node-builtins": "off",
     },
   },
   {
@@ -156,12 +157,6 @@ export default [
       "jsdoc/no-defaults": "off",
       "jsdoc/no-types": "off",
       "jsdoc/require-jsdoc": ["error", { publicOnly: true }],
-    },
-  },
-  {
-    files: ["*.*"],
-    rules: {
-      "n/no-unsupported-features/node-builtins": "off",
     },
   },
   {
@@ -221,5 +216,4 @@ export default [
       ".coverage"
     ],
   },
-  eslintConfigOxlint.configs["flat/recommended"],
 ] as Linter.Config[];

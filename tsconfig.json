@@ -5,6 +5,7 @@
 		"baseUrl": ".",
 		"module": "NodeNext",
 		"moduleResolution": "nodeNext",
+		"resolveJsonModule": true,
 		"noImplicitAny": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
