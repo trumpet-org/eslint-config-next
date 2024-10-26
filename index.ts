@@ -28,10 +28,10 @@ export default [
   eslintPluginNode.configs["flat/recommended-module"],
   eslintPluginPromise.configs["flat/recommended"],
   eslintPluginUnicorn.configs["flat/recommended"],
-  eslintPluginReact.configs.flat.recommended,
+  eslintPluginReact.configs.flat?.recommended ?? {},
   {
-    files: ['**/*.{ts,mts,jsx,mjsx,tsx,mtsx}'],
-    ...eslintPluginReact.configs.flat.recommended,
+    files: ["**/*.{ts,mts,jsx,mjsx,tsx,mtsx}"],
+    ...eslintPluginReact.configs.flat?.recommended,
   },
   {
     languageOptions: {
@@ -213,7 +213,7 @@ export default [
       "target",
       "gen",
       "coverage",
-      ".coverage"
+      ".coverage",
     ],
   },
 ] as Linter.Config[];
