@@ -30,8 +30,13 @@ export default [
   eslintPluginUnicorn.configs["flat/recommended"],
   eslintPluginReact.configs.flat?.recommended ?? {},
   {
-    files: ["**/*.{ts,mts,jsx,mjsx,tsx,mtsx}"],
     ...eslintPluginReact.configs.flat?.recommended,
+    files: ["**/*.{ts,mts,jsx,mjsx,tsx,mtsx}"],
+    settings: {
+      react: {
+        version: "detect",
+      }
+    }
   },
   {
     languageOptions: {
