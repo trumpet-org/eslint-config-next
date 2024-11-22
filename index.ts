@@ -28,16 +28,15 @@ export default [
   eslintPluginNode.configs["flat/recommended-module"],
   eslintPluginPromise.configs["flat/recommended"],
   eslintPluginUnicorn.configs["flat/recommended"],
-  eslintPluginReact.configs.flat?.recommended ?? {},
-  {
-    ...eslintPluginReact.configs.flat?.recommended,
+  ...(eslintPluginReact.configs.flat?.recommended ? 
+  [eslintPluginReact.configs.flat.recommended, {
     files: ["**/*.{ts,mts,jsx,mjsx,tsx,mtsx}"],
     settings: {
       react: {
         version: "detect",
       }
     }
-  },
+  }] : []),
   {
     languageOptions: {
       globals: {
@@ -111,6 +110,7 @@ export default [
       "@typescript-eslint/switch-exhaustiveness-check": "warn",
       "@typescript-eslint/prefer-as-const": "warn",
       "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
 
       // Node.js rules
       "n/no-extraneous-import": "error",
