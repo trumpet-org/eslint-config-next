@@ -59,7 +59,7 @@ export default [
         rules: {
             // NextJS rules
             "@next/next/no-html-link-for-pages": "off",
-            
+
             // TypeScript rules
             "@typescript-eslint/array-type": ["error", {default: "array"}],
             "@typescript-eslint/consistent-indexed-object-style": "error",
@@ -105,12 +105,13 @@ export default [
             "@typescript-eslint/switch-exhaustiveness-check": "warn",
             curly: "error",
             eqeqeq: "error",
+
             // Node.js rules
             "n/no-extraneous-import": "error",
             "n/no-missing-import": "off",
             "n/no-process-exit": "error",
-            // Node
             "n/no-unsupported-features/node-builtins": "off",
+
             // JavaScript rules
             "no-console": "warn",
 
@@ -120,8 +121,14 @@ export default [
 
             "prefer-destructuring": "error",
             "prefer-template": "warn",
+
+            // React Perf rules
+            "react-perf/jsx-no-new-function-as-prop": "off",
+            "react-perf/jsx-no-new-object-as-prop": "off",
+
             // React
             "react/react-in-jsx-scope": "off",
+
             // Unicorn rules
             "unicorn/catch-error-name": "off",
             "unicorn/explicit-length-check": "off",
@@ -131,15 +138,12 @@ export default [
             "unicorn/no-null": "off",
             "unicorn/no-process-exit": "off",
             "unicorn/no-useless-undefined": "off",
-
             "unicorn/prefer-module": "off",
-
             "unicorn/prefer-string-raw": "off",
-
             "unicorn/prevent-abbreviations": "off",
 
             // Unused imports rule
-            "unused-imports/no-unused-imports": "error"
+            "unused-imports/no-unused-imports": "error",
         },
         settings: {
             react: {
