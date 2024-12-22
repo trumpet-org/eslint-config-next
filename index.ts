@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { fixupPluginRules } from "@eslint/compat";
+import { fixupConfigRules, FixupConfig } from "@eslint/compat";
 import eslintJS from "@eslint/js";
 import eslintPluginJSDoc from "eslint-plugin-jsdoc";
 // @ts-expect-error, untyped import
@@ -20,6 +20,9 @@ import eslintTS from "typescript-eslint";
 // @ts-expect-error, untyped import
 import eslintPluginNext from "@next/eslint-plugin-next";
 import type { Linter } from "eslint";
+import perfectionist from "eslint-plugin-perfectionist";
+
+const { flat: ReactPluginFlatConfig = {} } = eslintPluginReact.configs;
 
 export default [
   eslintJS.configs.recommended,
@@ -28,15 +31,12 @@ export default [
   eslintPluginNode.configs["flat/recommended-module"],
   eslintPluginPromise.configs["flat/recommended"],
   eslintPluginUnicorn.configs["flat/recommended"],
-  ...(eslintPluginReact.configs.flat?.recommended ? 
-  [eslintPluginReact.configs.flat.recommended, {
-    files: ["**/*.{ts,mts,jsx,mjsx,tsx,mtsx}"],
-    settings: {
-      react: {
-        version: "detect",
-      }
-    }
-  }] : []),
+  perfectionist.configs["recommended-alphabetical"],
+  ...fixupConfigRules(
+    eslintPluginReactHooks.configs.recommended as FixupConfig
+  ),
+  ...fixupConfigRules(eslintPluginNext.configs.recommended as FixupConfig),
+  ReactPluginFlatConfig,
   {
     languageOptions: {
       globals: {
@@ -52,11 +52,14 @@ export default [
         ecmaFeatures: { jsx: true },
       },
     },
+    settings: {
+      react: {
+        version: "19",
+      },
+    },
     plugins: {
       "unused-imports": eslintPluginUnusedImports,
       markdown: eslintPluginMarkdown,
-      "react-hooks": fixupPluginRules(eslintPluginReactHooks),
-      "@next/next": fixupPluginRules(eslintPluginNext),
     },
     rules: {
       // JavaScript rules
