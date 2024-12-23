@@ -128,6 +128,7 @@ export default [
 
       // React
       "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
 
       // Unicorn rules
       "unicorn/catch-error-name": "off",
