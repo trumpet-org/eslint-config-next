@@ -19,6 +19,8 @@ import eslintPluginUnusedImports from "eslint-plugin-unused-imports";
 import eslintPluginVitest from "eslint-plugin-vitest";
 import globals from "globals";
 import eslintTS from "typescript-eslint";
+// @ts-expect-error, untyped import
+import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
 
 const compat = new FlatCompat();
 
@@ -32,6 +34,7 @@ export default [
   eslintPluginPerfectionist.configs["recommended-alphabetical"],
   eslintPluginReact.configs.flat!.recommended,
   reactPerfPlugin.configs.flat.recommended,
+  eslintPluginJsxA11y.flatConfigs.recommended,
   ...compat.extends("plugin:react-hooks/recommended"),
   ...compat.extends("plugin:@next/next/core-web-vitals"),
   {
@@ -54,13 +57,7 @@ export default [
       "unused-imports": eslintPluginUnusedImports,
     },
     rules: {
-      // Perfectionist rules
-      "perfectionist/sort-imports": "off",
-
-      // NextJS rules
       "@next/next/no-html-link-for-pages": "off",
-
-      // TypeScript rules
       "@typescript-eslint/array-type": ["error", { default: "array" }],
       "@typescript-eslint/consistent-indexed-object-style": "error",
       "@typescript-eslint/consistent-type-definitions": "warn",
@@ -78,7 +75,6 @@ export default [
         { ignoreIIFE: true, ignoreVoid: true },
       ],
       "@typescript-eslint/no-for-in-array": "error",
-
       "@typescript-eslint/no-inferrable-types": "error",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-redundant-type-constituents": "warn",
@@ -105,32 +101,22 @@ export default [
       "@typescript-eslint/switch-exhaustiveness-check": "warn",
       curly: "error",
       eqeqeq: "error",
-
-      // Node.js rules
       "n/no-extraneous-import": "error",
       "n/no-missing-import": "off",
       "n/no-process-exit": "error",
       "n/no-unsupported-features/node-builtins": "off",
-
-      // JavaScript rules
       "no-console": "warn",
-
       "no-unused-vars": "error",
       "object-shorthand": "error",
+      "perfectionist/sort-imports": "off",
       "prefer-const": ["error", { destructuring: "all" }],
-
       "prefer-destructuring": "error",
       "prefer-template": "warn",
-
-      // React Perf rules
       "react-perf/jsx-no-new-function-as-prop": "off",
       "react-perf/jsx-no-new-object-as-prop": "off",
-
-      // React
-      "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-
-      // Unicorn rules
+      "react/react-in-jsx-scope": "off",
+      "tailwindcss/no-custom-classname": "off",
       "unicorn/catch-error-name": "off",
       "unicorn/explicit-length-check": "off",
       "unicorn/no-array-callback-reference": "off",
@@ -142,9 +128,8 @@ export default [
       "unicorn/prefer-module": "off",
       "unicorn/prefer-string-raw": "off",
       "unicorn/prevent-abbreviations": "off",
-
-      // Unused imports rule
       "unused-imports/no-unused-imports": "error",
+      "no-unused-vars": "off",
     },
     settings: {
       react: {

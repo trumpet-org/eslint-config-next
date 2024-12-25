@@ -48,11 +48,12 @@
     "@next/eslint-plugin-next": "^15.1.2",
     "@types/eslint__js": "^8.42.3",
     "eslint-plugin-jsdoc": "^50.6.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-n": "17.15.1",
     "eslint-plugin-perfectionist": "^4.4.0",
     "eslint-plugin-promise": "7.2.1",
-    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-perf": "^3.3.3",
     "eslint-plugin-unicorn": "56.0.1",
@@ -69,7 +70,7 @@
     "lint-staged": "^15.2.11",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1"
+    "typescript-eslint": "^8.18.2"
   },
   "peerDependencies": {
     "eslint": ">=9",
