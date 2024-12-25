@@ -106,7 +106,7 @@ export default [
       "n/no-process-exit": "error",
       "n/no-unsupported-features/node-builtins": "off",
       "no-console": "warn",
-      "no-unused-vars": "error",
+      "no-unused-vars": "off",
       "object-shorthand": "error",
       "perfectionist/sort-imports": "off",
       "prefer-const": ["error", { destructuring: "all" }],
@@ -129,7 +129,6 @@ export default [
       "unicorn/prefer-string-raw": "off",
       "unicorn/prevent-abbreviations": "off",
       "unused-imports/no-unused-imports": "error",
-      "no-unused-vars": "off",
     },
     settings: {
       react: {
